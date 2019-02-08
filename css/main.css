@@ -1,0 +1,24 @@
+.container {
+  border: 1px solid red;
+  width: 95%;
+  margin: 0 auto;
+  background-color: grey;
+}
+
+.card {
+  display: inline-flex;
+  align-items: center;
+
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.card img {
+  border-radius: 50%;
+}
+
+.user-info{
+  display: inline-block;
+  margin-left: 10px;
+}
