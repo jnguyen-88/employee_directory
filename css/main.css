@@ -1,8 +1,21 @@
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1);}
+}
+
+@-moz-keyframes zoom {
+    0% { -moz-transform: scale(1);}
+    50% { -moz-transform: scale(1.1); }
+    100% { -moz-transform: scale(1); }
+}
+
+
 .container {
   border: 1px solid red;
   width: 95%;
   margin: 0 auto;
-  background-color: grey;
+  background-color: #DBDEDF;
 }
 
 .card {
@@ -12,6 +25,16 @@
   background-color: white;
   border-radius: 5px;
   padding: 20px;
+  width: 25%;
+  margin: 0 20px 20px 0;
+  border: 2px solid #ABABAB;
+  cursor: pointer;
+  transition: all .4s ease-out;
+}
+
+.card:hover {
+  background-color: red;
+  animation: zoom .5s ease-in-out;
 }
 
 .card img {
@@ -22,3 +45,28 @@
   display: inline-block;
   margin-left: 10px;
 }
+
+#employees {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 90%;
+  margin: 0 auto;
+}
+
+#overlay {
+  position: fixed; 
+  display: none;
+  width: 100%;
+  height: 100%; 
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2; 
+}
+
+
+
