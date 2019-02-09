@@ -8,9 +8,8 @@ const close = document.querySelector('.close');
 let employees;
 
 
-
 /*==============
-Fetch Function
+Fetch Functions
 ================*/
 
 fetch(url)
@@ -38,7 +37,6 @@ fetch(url)
     const cards = document.querySelectorAll('.card');
     for(let i = 0; i < cards.length; i++){
       cards[i].addEventListener("click", function(){
-        // $overlay.show();
         cardIndex = this.id;
         generateModalHtml(employees, cardIndex)
       })
@@ -48,7 +46,7 @@ fetch(url)
 
 
 /*==============
-Helper Functions
+ Helper Functions
 ================*/
 
 function parseData(data) {
@@ -63,8 +61,7 @@ function parseData(data) {
     `
         <img src=${employees[i].picture.medium} alt=${employees[i].name.first}>
         <div class="user-info">
-          <div class="name">${capitalize(employees[i].name.first)} `  +
-          `${capitalize(employees[i].name.last)}</div>
+          <div class="name">${capitalize(employees[i].name.first) + " " + capitalize(employees[i].name.last)}</div>
           <div class="email">${employees[i].email}</div>
           <div class="city">${capitalize(employees[i].location.city)}</div>
         </div>
@@ -73,20 +70,10 @@ function parseData(data) {
   }
 };
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
 function generateModalHtml(employee, i) {
   console.log(employee)
   const modal = document.createElement('div');
-
-
   let date = formatDate(employee[i].dob.date);
-
-  
-  
-
   modal.id = i;
   modal.className = 'modal-card';
   modal.innerHTML =
@@ -94,20 +81,15 @@ function generateModalHtml(employee, i) {
         <span class="close">X</span>
         <img src="${employee[i].picture.medium}" alt=>
           <div class="user-info">
-          <div class="name">${capitalize(employee[i].name.first)}`  
-
-          + 
-      `
-        ${capitalize(employee[i].name.last)}</div>
+          <div class="name">${capitalize(employee[i].name.first) + " " + capitalize(employee[i].name.last)}</div>
           <div class="email">${employee[i].email}</div>
-          <div class="city">${capitalize(employee[i].location.city)}</div>
+          <div class="city">${capitalize(employee[i].location.city) + ", " + capitalize((employee[i].location.state)) + " " + (employee[i].location.postcode)}</div>
         </div>
         <div class="details">
-          <div>${employee[i].phone}</div>
-          <div>${toTitleCase(employee[i].location.street) + " " 
-                + capitalize(employee[i].location.city)}
+          <div class="info">${employee[i].cell}</div>
+          <div class="info">${capitalize(employee[i].location.street) + " " + capitalize(employee[i].location.city)}
           </div>
-          <div>Birthday: ${date}</div>
+          <div class="info">Birthday: ${date}</div>
         </div>
         `
         $overlay.show();
@@ -118,13 +100,16 @@ function generateModalHtml(employee, i) {
   })
 }
 
-function toTitleCase(str) {
+
+/*============
+ Misc Func
+=============*/
+
+function capitalize(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
-
-
 
 function addEventListenersToModal() {
   // close button listener
@@ -138,42 +123,6 @@ function formatDate(day) {
   var date = new Date(day);
   return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
 }
-
-
-
-
-
-
-
-// function displayModal(data) {
-//   console.log(data);
-//   let html = [];
-//   const cards = document.querySelectorAll('.card');
-//   for(let i = 0; i < cards.length; i++){
-//     cards[i].addEventListener("click", function(){
-//       $overlay.show();
-//       html +=
-//         `
-//             <div class="modal-card">
-//               <span class="close">X</span>
-//               <img src="member-1.jpg" alt=>
-//               <div class="user-info">
-//                 <div class="name">Justin `  +
-//                 `Nguyen</div>
-//                 <div class="email">ez@example.com</div>
-//                 <div class="city">Sacramento</div>
-//               </div>
-//             </div>
-//         `
-//     }) 
-//   }
-//   $overlay.html(html);
-//   addEventListenersToModal();
-// }
-
-
-
-
 
 
 

@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 @keyframes zoom {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
@@ -10,13 +16,19 @@
     100% { -moz-transform: scale(1); }
 }
 
+h1 {
+  width: 79%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
 
 .container {
-  border: 1px solid red;
-  width: 95%;
   margin: 0 auto;
   background-color: #DBDEDF;
+  height: 100vh;
 }
+
 
 .card {
   display: inline-flex;
@@ -41,9 +53,23 @@
   border-radius: 50%;
 }
 
+/*User Info*/
+
 .user-info{
   display: inline-block;
   margin-left: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.email,
+.city,
+.info {
+  font-size: 14px;
+  color: grey;
 }
 
 #employees {
@@ -51,7 +77,6 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  width: 90%;
   margin: 0 auto;
 }
 
