@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Heebo', sans-serif;
 }
 
 @keyframes zoom {
@@ -20,12 +21,17 @@ h1 {
   width: 79%;
   margin: 0 auto;
   padding: 20px 0;
+  font-size: 45px;
+  font-weight: 400;
+  background: -webkit-linear-gradient(#c42746, #f47790);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
 .container {
   margin: 0 auto;
-  background-color: #DBDEDF;
+  background-color: #d3d3d3;
   height: 100vh;
 }
 
@@ -34,7 +40,7 @@ h1 {
   display: inline-flex;
   align-items: center;
 
-  background-color: white;
+  background-color: rgba(255,255,255, 0.5);
   border-radius: 5px;
   padding: 20px;
   width: 25%;
@@ -45,8 +51,14 @@ h1 {
 }
 
 .card:hover {
-  background-color: red;
+  background-color: #fff;
   animation: zoom .5s ease-in-out;
+  color: #fff;
+}
+
+.card:hover .email,
+.card:hover .city {
+  color: black;
 }
 
 .card img {
@@ -63,6 +75,7 @@ h1 {
 .name {
   font-weight: bold;
   font-size: 16px;
+  color: #c42746;
 }
 
 .email,

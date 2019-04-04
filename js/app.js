@@ -17,14 +17,12 @@ fetch(url)
   .then(createCards)
   .then(clickCard)
 
-
-
 /*==============
  Helper Functions
 ================*/
 
 function parseJSON(response){
-  return response.json();
+  return response.json()
 };
 
 function createCards(data) {
@@ -94,7 +92,6 @@ function generateModalHtml(employees, i) {
         $overlay.html(modal);
         $('.close').click(closeModal)
 }
-
 
 /*============
  Misc Func
